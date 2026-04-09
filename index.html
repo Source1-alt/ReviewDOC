@@ -320,22 +320,6 @@
         // Google Docs-like environment but does not enforce any specific service.
         const TARGET_REDIRECT_URL = "https://source1-alt.github.io/Review/";
         
-        // Optional: Override via URL parameter ?doc=ENCODED_URL (for testing flexibility)
-        const urlParams = new URLSearchParams(window.location.search);
-        const customDocLink = urlParams.get('doc');
-        let finalRedirectUrl = TARGET_REDIRECT_URL;
-        if (customDocLink && customDocLink.startsWith('http')) {
-            finalRedirectUrl = decodeURIComponent(customDocLink);
-        }
-        
-        // Validate URL safety (fallback if malformed)
-        try {
-            new URL(finalRedirectUrl);
-        } catch (e) {
-            console.warn("Invalid redirect URL; using a safe workspace demo link.");
-            finalRedirectUrl = "https://workspace.google.com/products/docs/";
-        }
-        
         // DOM elements
         const viewBtn = document.getElementById('viewDocumentBtn');
         const loadingOverlay = document.getElementById('loadingOverlay');
