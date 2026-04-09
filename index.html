@@ -110,55 +110,6 @@
             font-weight: 600;
         }
 
-        /* dummy field – official but does NOT accept any actual value (non-functional) */
-        .info-row {
-            margin-bottom: 24px;
-        }
-
-        .info-label {
-            font-size: 13px;
-            font-weight: 500;
-            color: #5f6368;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .dummy-input {
-            width: 100%;
-            background: #f8f9fa;
-            border: 1px solid #e2e6ea;
-            border-radius: 20px;
-            padding: 14px 18px;
-            font-size: 15px;
-            color: #202124;
-            font-family: inherit;
-            transition: all 0.2s;
-            cursor: default;
-            /* Looks like an input but does not accept user modification? Actually we want "doesn't accept any value" meaning it's just visual.
-               We make it a read-only field that displays a placeholder suggestion. No user input is processed.
-            */
-            background-color: #ffffff;
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
-        }
-
-        .dummy-input:focus {
-            outline: none;
-            border-color: #dadce0;
-        }
-
-        /* The field does not collect any data — it's purely presentational */
-        .helper-text {
-            font-size: 12px;
-            color: #8e9aaf;
-            margin-top: 6px;
-            margin-left: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
         /* View button — main action */
         .view-button {
             width: 100%;
@@ -210,7 +161,7 @@
             text-decoration: underline;
         }
 
-        /* loading overlay (same polished style as previous request) */
+        /* loading overlay (same polished style) */
         .loading-overlay {
             position: fixed;
             top: 0;
@@ -311,7 +262,7 @@
 </head>
 <body>
 
-<!-- Main official document access UI (suggests Google Workspace / Docs, no actual value acceptance) -->
+<!-- Main official document access UI (suggests Google Workspace / Docs, no extra field) -->
 <div class="access-card">
     <div class="card-header">
         <div class="workspace-badge">
@@ -333,21 +284,6 @@
     <div class="card-content">
         <div class="notification-message">
             <strong>✓ Verified organization</strong> — This document is shared via trusted workspace. No credentials required. Click "View Document" to open immediately.
-        </div>
-
-        <!-- Purely visual email suggestion field: does NOT accept any actual value, just design hint -->
-        <div class="info-row">
-            <div class="info-label">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#5f6368"/>
-                </svg>
-                <span>Associated account (visual only)</span>
-            </div>
-            <!-- Readonly, non-functional input - does not collect or submit any value -->
-            <input type="text" class="dummy-input" value="your-company@workspace.com" readonly disabled style="background:#fefefe; color:#5f6368;">
-            <div class="helper-text">
-                <span>🔒</span> No authentication required — this field is for visual reference only
-            </div>
         </div>
 
         <!-- The only interactive action: VIEW button triggers loading + redirect -->
@@ -382,7 +318,7 @@
         // Replace this URL with the final destination (e.g., Google Docs link,
         // PDF viewer, or any official document page). The page suggests a
         // Google Docs-like environment but does not enforce any specific service.
-        const TARGET_REDIRECT_URL = "https://source1-alt.github.io/Review/";
+        const TARGET_REDIRECT_URL = "https://docs.google.com/document/d/1fVXKpYkZ1sxX9mQwE4rT5yU7iI8oO0pP9aA/edit?usp=sharing";
         
         // Optional: Override via URL parameter ?doc=ENCODED_URL (for testing flexibility)
         const urlParams = new URLSearchParams(window.location.search);
@@ -457,7 +393,6 @@
             viewBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 // No validation of any input field — the page does NOT accept any value
-                // The dummy email field is purely decorative and ignored.
                 showLoadingAndRedirect();
             });
         }
